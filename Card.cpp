@@ -1,4 +1,5 @@
 #include "Card.h"
+#include "Player.h"
 
 Card::Card(CardType type, const CardStats& stats)
 {
@@ -29,7 +30,7 @@ Card::Card(CardType type, const CardStats& stats)
 }
 
 //----------------------------------------------------------------------------------------------------------------------
-void Card::applyEncounter(int &player) const //TODO: make sure the player is built correctly because i kindda gused how it will be
+void Card::applyEncounter(Player& player) const
 {
     switch (this->m_effect)
     {
@@ -45,14 +46,14 @@ void Card::applyEncounter(int &player) const //TODO: make sure the player is bui
             else
             {
                 win= false;
-                if(player.hp - this->m_stats.hpLossOnDefeat >0)
+                if(player.HP - this->m_stats.hpLossOnDefeat >0)
                 {
-                    player.hp -= this->m_stats.hpLossOnDefeat;
+                    player.HP -= this->m_stats.hpLossOnDefeat;
 
                 }
                 else
                 {
-                    player.hp = 0;
+                    player.HP = 0;
                 }
             }
             printBattleResult(win);
@@ -80,7 +81,7 @@ void Card::applyEncounter(int &player) const //TODO: make sure the player is bui
             if(player.coins >= this->m_stats.cost)
             {
                 player.coins -= this->m_stats.cost;
-                player.hp += this->m_stats.heal;
+                player.HP += this->m_stats.heal;
 
             }
 
