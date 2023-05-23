@@ -25,9 +25,8 @@ bool Mtmchkin::isOver() const {
     return false;
 }
 void Mtmchkin::playNextCard() {
-    if(this->current_card == this->numOfCards - 1){ // reset cards array;
+    if(this->current_card == this->numOfCards){ // reset cards array;
         this->current_card = 0;
-        return;
     }
     //------MOVE--------
     this->cardsArray[this->current_card].printInfo(); // step 1&2
