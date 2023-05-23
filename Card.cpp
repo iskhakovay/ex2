@@ -67,22 +67,18 @@ void Card::applyEncounter(Player& player) const
 
         case CardType::Buff:
         {
-            if(player.pay(this->m_stats.loot))
+            if(player.pay(this->m_stats.cost))
             {
-                player.coins -= this->m_stats.cost;
                 player.buff(this->m_stats.buff);
-
             }
             break;
         }
 
         case CardType::Heal:
         {
-            if(player.pay(this->m_stats.loot))
+            if(player.pay(this->m_stats.cost))
             {
-                player.coins -= this->m_stats.cost;
                 player.heal(this->m_stats.heal);
-
             }
             break;
         }
