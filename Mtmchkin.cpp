@@ -16,7 +16,7 @@ GameStatus Mtmchkin::getGameStatus() const {
         return GameStatus::Loss;
     }
     return GameStatus::MidGame;
-}
+}///
 
 bool Mtmchkin::isOver() const {
     if(getGameStatus()!=GameStatus::MidGame){
