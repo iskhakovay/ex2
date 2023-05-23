@@ -4,7 +4,7 @@
 
 
 class Player {
-private:
+public:
 
     const char* name;
     int level;
