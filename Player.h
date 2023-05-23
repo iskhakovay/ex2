@@ -4,7 +4,7 @@
 
 
 class Player {
-public:
+private:
 
     const char* name;
     int level ;
@@ -24,10 +24,11 @@ public:
     * @param DEFAULT_MAX_HP - default max hp.
     * @param DEFAULT_FORCE - default force.
     */
-   static const int DEFAULT_MAX_HP = 100;
-   static const int DEFAULT_FORCE = 5;
+
 
 public:
+    static const int DEFAULT_MAX_HP = 100;
+    static const int DEFAULT_FORCE = 5;
     Player( const char* name,int maxHP , int force );
     explicit Player(const char *name);
     Player(const char *name, int maxHP);//constructor
