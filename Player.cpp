@@ -32,25 +32,25 @@ Player::Player(const char* name, int maxHP , int force):force(DEFAULT_FORCE),coi
         this->force = force;
     }
 
-    if(!nameCheck(name)){
+    /*if(!nameCheck(name)){
         cout << "Entered name is invalid: " << name<<endl;
         cout<< "------------------------" <<endl;
         return; //TODO if input always okay lol?
-    }
+    }*/
     this->name = name;
 }
 Player::Player(const char *name):force(DEFAULT_FORCE),coins(0),maxHP(DEFAULT_MAX_HP),HP(DEFAULT_MAX_HP),level(1) {
-    if(!nameCheck(name)){
+    /*if(!nameCheck(name)){
         cout << "Entered name is invalid" << endl;
         return; //TODO if input always okay lol?
-    }
+    }*/
     this->name = name;
 }
 Player::Player(const char *name, int maxHP):force(DEFAULT_FORCE),coins(0),level(1) {
-    if(!nameCheck(name)){
+    /*if(!nameCheck(name)){
         cout << "Entered name is invalid" << endl;
         return; //TODO if input always okay lol?
-    }
+    }*/
     this->maxHP = maxHP;
     this->HP = maxHP;
     this->name = name;

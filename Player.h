@@ -7,11 +7,11 @@ class Player {
 public:
 
     const char* name;
-    int level;
-    int force;
-    int maxHP;
-    int HP;
-    int coins;
+    int level ;
+    int force ;
+    int maxHP ;
+    int HP ;
+    int coins  ;
     /**
     *C'tor of Player:
     *
