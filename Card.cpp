@@ -53,9 +53,6 @@ void Card::applyEncounter(Player& player) const
             {
                 win= false;
                 player.damage(this->m_stats.hpLossOnDefeat);
-                if(player.isKnockedOut()){
-                    std::cout << "Player is knocked out";
-                }
             }
             printBattleResult(win);
             break;
@@ -75,8 +72,6 @@ void Card::applyEncounter(Player& player) const
                 player.coins -= this->m_stats.cost;
                 player.buff(this->m_stats.buff);
 
-            }else{
-                std::cout << "Not enough coins";
             }
             break;
         }
