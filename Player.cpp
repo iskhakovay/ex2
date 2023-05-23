@@ -10,7 +10,7 @@ using std::endl;
 //const char* LINE_DIVIDER  = "------------------------";
 
 //____________SUB FUNCTIONS________________
-bool nameCheck(const char* name){
+/*bool nameCheck(const char* name){
     int len_of_name = (int)strlen(name);
     for(int i = 0; i<len_of_name; i++){
         if((name[i]<'A' || name[i]>'Z') && (name[i]<'a' || name[i]>'z') ){
@@ -18,7 +18,7 @@ bool nameCheck(const char* name){
         }
     }
     return true;
-}
+}*/
 
 //____________END OF SUB FUNCTIONS_________
 
