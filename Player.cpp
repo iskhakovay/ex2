@@ -94,7 +94,7 @@ void Player::addCoins(int coins_am) {
     this->coins += coins_am;
 }
 
-bool Player::isKnockedOut() {
+bool Player::isKnockedOut() const {
     if(this->HP == 0){
         return true;
     }

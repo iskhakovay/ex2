@@ -41,7 +41,7 @@ public:
     void damage(int damage_p);/** Damages player*/
     void addCoins(int coins_am);/** Adding coins to player*/
     int getAttackStrength();/** Gives info about player's current attack strength*/
-    bool isKnockedOut();/** Checks is player's HP reached 0*/
+    bool isKnockedOut() const;/** Checks is player's HP reached 0*/
     bool pay(int price);/** Checks if player has enough money for his purchase*/
 
 };

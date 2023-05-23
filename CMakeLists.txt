@@ -8,9 +8,10 @@ include_directories(.)
 add_executable(ex2
         Card.h
         Card.cpp
+        Mtmchkin.cpp
         Mtmchkin.h
         Player.cpp
         Player.h
-        testing.cpp
+        test.cpp
         utilities.cpp
         utilities.h)

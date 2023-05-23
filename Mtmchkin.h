@@ -16,6 +16,13 @@
 enum class GameStatus{Win, Loss, MidGame};
 
 class Mtmchkin {
+private:
+    const char* playerName;
+    const Card* cardsArray;
+    int numOfCards;
+    int current_card;
+    GameStatus status;
+    Player player;
 public:
 
     /*
