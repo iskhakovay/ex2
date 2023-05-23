@@ -23,7 +23,7 @@ bool nameCheck(const char* name){
 //____________END OF SUB FUNCTIONS_________
 
 //____________CONSTRUCTIONS________________
-Player::Player(const char* name, int maxHP , int force):force(DEFAULT_FORCE),coins(0),maxHP(DEFAULT_MAX_HP),HP(DEFAULT_MAX_HP),level(1){/** i guess it's default values like this */
+Player::Player(const char* name, int maxHP , int force):name(name),level(1),force(DEFAULT_FORCE),maxHP(DEFAULT_MAX_HP),HP(DEFAULT_MAX_HP),coins(0){/** i guess it's default values like this */
     if(maxHP >= 0){
         this->maxHP = maxHP;
         this->HP = maxHP;
@@ -37,23 +37,23 @@ Player::Player(const char* name, int maxHP , int force):force(DEFAULT_FORCE),coi
         cout<< "------------------------" <<endl;
         return; //TODO if input always okay lol?
     }*/
-    this->name = name;
+    //this->name = name;
 }
-Player::Player(const char *name):force(DEFAULT_FORCE),coins(0),maxHP(DEFAULT_MAX_HP),HP(DEFAULT_MAX_HP),level(1) {
+Player::Player(const char *name):name(name),level(1),force(DEFAULT_FORCE),maxHP(DEFAULT_MAX_HP),HP(DEFAULT_MAX_HP),coins(0) {
     /*if(!nameCheck(name)){
         cout << "Entered name is invalid" << endl;
         return; //TODO if input always okay lol?
     }*/
-    this->name = name;
+    //this->name = name;
 }
-Player::Player(const char *name, int maxHP):force(DEFAULT_FORCE),coins(0),level(1) {
+Player::Player(const char *name, int maxHP):name(name),level(1),force(DEFAULT_FORCE) {
     /*if(!nameCheck(name)){
         cout << "Entered name is invalid" << endl;
         return; //TODO if input always okay lol?
     }*/
     this->maxHP = maxHP;
     this->HP = maxHP;
-    this->name = name;
+    this->coins = 0;
 }
 
 //TODO deconstruction
