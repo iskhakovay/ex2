@@ -8,18 +8,13 @@
 
 bool testMtmchkin()
 {
-    Card cards[5];
-    CardStats stats(16, 7472, 17, 1, 1, 1);
+    Card cards[4];
+    CardStats stats(3, 40, 10, 30, 1, 20);
     cards[0] = Card(CardType::Treasure, stats);
-    CardStats stats2(19, 8, 7, 16, 4, 1);
-    cards[1] = Card(CardType::Battle, stats2);
-    CardStats stat3(14, 19, 8, 12, 3, 12);
-    cards[2] = Card(CardType::Treasure, stat3);
-    CardStats stats4(14, 11, 5, 14, 6, 6);
-    cards[3] = Card(CardType::Battle, stats4);
-    CardStats stats5(13, 9, 20, 19, 11, 14);
-    cards[4] = Card(CardType::Battle, stats5);
-    Mtmchkin game("man", cards, 5);
+    cards[1] = Card(CardType::Buff, stats);
+    cards[2] = Card(CardType::Battle, stats);
+    cards[3] = Card(CardType::Heal, stats);
+    Mtmchkin game("Daniel", cards, 4);
     while(!game.isOver()){
         game.playNextCard();
     }
