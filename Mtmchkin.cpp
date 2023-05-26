@@ -6,10 +6,7 @@ Mtmchkin::Mtmchkin(const char *playerName, const Card *cardsArray, int numOfCard
                                                                                     m_current_card(0),
                                                                                    m_player(playerName){
 }
-Mtmchkin::~Mtmchkin() {
-    delete m_playerName;
-    delete m_cardsArray;
-}
+
 
 GameStatus Mtmchkin::getGameStatus() const {
     if(this->m_player.getLevel() == 10){
