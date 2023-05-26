@@ -1,11 +1,10 @@
 #include "Card.h"
 #include "Player.h"
-#include <iostream>
+
 
 Card::Card(CardType type, const CardStats& stats)
 {
     this->m_effect = type;
-    //this->m_stats = stats;
     switch (this->m_effect)
     {
         case CardType::Battle:

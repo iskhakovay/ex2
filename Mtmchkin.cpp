@@ -1,22 +1,24 @@
 #include "Card.h"
-#include "Player.h"
-#include <iostream>
 #include "Mtmchkin.h"
 
-Mtmchkin::Mtmchkin(const char *playerName, const Card *cardsArray, int numOfCards):cardsArray(cardsArray),
-                                                                                    numOfCards(numOfCards),
-                                                                                    current_card(0),
-                                                                                   player(playerName){
+Mtmchkin::Mtmchkin(const char *playerName, const Card *cardsArray, int numOfCards):m_cardsArray(cardsArray),
+                                                                                    m_numOfCards(numOfCards),
+                                                                                    m_current_card(0),
+                                                                                   m_player(playerName){
 }
-//
+Mtmchkin::~Mtmchkin() {
+    delete m_playerName;
+    delete m_cardsArray;
+}
+
 GameStatus Mtmchkin::getGameStatus() const {
-    if(this->player.getLevel() == 10){
+    if(this->m_player.getLevel() == 10){
         return GameStatus::Win;
-    }else if(this->player.isKnockedOut()){
+    }else if(this->m_player.isKnockedOut()){
         return GameStatus::Loss;
     }
     return GameStatus::MidGame;
-}///
+}
 
 bool Mtmchkin::isOver() const {
     if(getGameStatus()!=GameStatus::MidGame){
@@ -25,12 +27,12 @@ bool Mtmchkin::isOver() const {
     return false;
 }
 void Mtmchkin::playNextCard() {
-    if(this->current_card == this->numOfCards){ // reset cards array;
-        this->current_card = 0;
+    if(this->m_current_card == this->m_numOfCards){
+        this->m_current_card = 0;
     }
     //------MOVE--------
-    this->cardsArray[this->current_card].printInfo(); // step 1&2
-    this->cardsArray[this->current_card].applyEncounter(this->player); // step 3
-    this->player.printInfo();
-    this->current_card++;
+    this->m_cardsArray[this->m_current_card].printInfo();
+    this->m_cardsArray[this->m_current_card].applyEncounter(this->m_player);
+    this->m_player.printInfo();
+    this->m_current_card++;
 }

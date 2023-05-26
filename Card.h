@@ -1,6 +1,4 @@
-//
-// Created by Daniel_Meents on 07/04/2022.
-//
+
 #ifndef EX2_Card_H
 #define EX2_Card_H
 
@@ -8,7 +6,7 @@
 #include "Player.h"
 #include "utilities.h"
 
-/*
+/**
  *  CardType:
  *  Each card has an type:
  *  BATTLE - Battle against a monster.
@@ -20,7 +18,7 @@ enum class CardType {Battle, Buff, Heal, Treasure}; // The type of the Card
 
 class Card {
 public:
-    /*
+    /**
      * C'tor of Card class
      *
      * @param type - The type of the card.
@@ -31,7 +29,7 @@ public:
     Card(CardType type, const CardStats& stats);
 
 
-    /*
+    /**
      * Handling the player's applyEncounter with the card:
      *
      * @param player - The player.
@@ -41,7 +39,7 @@ public:
     void applyEncounter(Player& player) const;
 
 
-    /*
+    /**
      * Prints the card info:
      *
      * @return
@@ -50,13 +48,13 @@ public:
     void printInfo() const;
 
 
-    /*
+    /**
      * C'tor to the "default card" - Treasure card that gives 0 coins
     */
     Card(): m_effect(CardType::Treasure), m_stats() {}
 
 
-    /*
+    /**
      * Here we are explicitly telling the compiler to use the default methods
     */
     Card(const Card&) = default;

@@ -2,114 +2,92 @@
 #include <iostream>
 using std::cout;
 using std::endl;
-#include <string>
-#include <sstream>
 #include "Player.h"
 #include "utilities.h"
 
 //const char* LINE_DIVIDER  = "------------------------";
 
-//____________SUB FUNCTIONS________________
-/*bool nameCheck(const char* name){
-    int len_of_name = (int)strlen(name);
-    for(int i = 0; i<len_of_name; i++){
-        if((name[i]<'A' || name[i]>'Z') && (name[i]<'a' || name[i]>'z') ){
-            return false;
-        }
-    }
-    return true;
-}*/
 
-//____________END OF SUB FUNCTIONS_________
 
 //____________CONSTRUCTIONS________________
-Player::Player(const char* name, int maxHP , int force):name(name),level(1),force(DEFAULT_FORCE),maxHP(DEFAULT_MAX_HP),HP(DEFAULT_MAX_HP),coins(0){/** i guess it's default values like this */
+Player::Player(const char* name, int maxHP , int force):m_name(name),m_level(1),m_force(DEFAULT_FORCE),
+                                                                                m_maxHP(DEFAULT_MAX_HP),
+                                                                                m_HP(DEFAULT_MAX_HP),m_coins(0){
     if(maxHP >= 0){
-        this->maxHP = maxHP;
-        this->HP = maxHP;
+        this->m_maxHP = maxHP;
+        this->m_HP = maxHP;
     }
     if(force >= 0){
-        this->force = force;
+        this->m_force = force;
     }
 
-    /*if(!nameCheck(name)){
-        cout << "Entered name is invalid: " << name<<endl;
-        cout<< "------------------------" <<endl;
-        return; //TODO if input always okay lol?
-    }*/
-    //this->name = name;
-}
-Player::Player(const char *name):name(name),level(1),force(DEFAULT_FORCE),maxHP(DEFAULT_MAX_HP),HP(DEFAULT_MAX_HP),coins(0) {
-    /*if(!nameCheck(name)){
-        cout << "Entered name is invalid" << endl;
-        return; //TODO if input always okay lol?
-    }*/
-    //this->name = name;
-}
-Player::Player(const char *name, int maxHP):name(name),level(1),force(DEFAULT_FORCE) {
-    /*if(!nameCheck(name)){
-        cout << "Entered name is invalid" << endl;
-        return; //TODO if input always okay lol?
-    }*/
-    this->maxHP = maxHP;
-    this->HP = maxHP;
-    this->coins = 0;
 }
 
-//TODO deconstruction
+Player::Player(const char *name, int maxHP):m_name(name),m_level(1),m_force(DEFAULT_FORCE),m_maxHP(DEFAULT_MAX_HP),
+                                                                                            m_HP(DEFAULT_MAX_HP),
+                                                                                            m_coins(0) {
+    if(maxHP >= 0){
+        this->m_maxHP = maxHP;
+        this->m_HP = maxHP;
+    }
+}
+
+Player::Player(const char *name):m_name(name),m_level(1),m_force(DEFAULT_FORCE),m_maxHP(DEFAULT_MAX_HP),
+                                                                                m_HP(DEFAULT_MAX_HP),m_coins(0) {}
+
 //____________END OF CONSTRUCTIONS__________
 
 
 void Player::printInfo(){
-    printPlayerInfo(this->name, this->level, this->force, this->HP, this->coins);
+    printPlayerInfo(this->m_name, this->m_level, this->m_force, this->m_HP, this->m_coins);
 }
 
 void Player::levelUp() {
-    this->level++;
+    this->m_level++;
 }
 
 int Player::getLevel() const {
-    return this->level;
+    return this->m_level;
 }
 void Player::buff(int buff_force) {
-    this->force+=buff_force;
+    this->m_force+=buff_force;
 }
 
 void Player::heal(int heal_hp) {
-    if(this->HP + heal_hp > this->maxHP){
-        this->HP = this->maxHP;
+    if(this->m_HP + heal_hp > this->m_maxHP){
+        this->m_HP = this->m_maxHP;
     }else{
-        this->HP+=heal_hp;
+        this->m_HP+=heal_hp;
     }
 }
 
 void Player::damage(int damage_p) {
-    if(this->HP - damage_p > 0){
-        this->HP -= damage_p;
+    if(this->m_HP - damage_p > 0){
+        this->m_HP -= damage_p;
     }else{
-        this->HP = 0;
+        this->m_HP = 0;
     }
 }
 void Player::addCoins(int coins_am) {
-    this->coins += coins_am;
+    this->m_coins += coins_am;
 }
 
 bool Player::isKnockedOut() const {
-    if(this->HP == 0){
+    if(this->m_HP == 0){
         return true;
     }
     return false;
 }
 bool Player::pay(int price) {
-    if(this->coins - price < 0){
+    if(this->m_coins - price < 0){
         return false;
     }
-    this->coins -= price;
+    this->m_coins -= price;
     return true;
 }
 
 int Player::getAttackStrength() {
-    return (this->force + this->level);
+    return (this->m_force + this->m_level);
 }
 
 
